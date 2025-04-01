@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut Icon" type="image/png" href="../src/images/Logo-icono.png" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
+
+
     <!-- WRAPPER -->
     <div class="flex flex-col items-center justify-center min-h-screen bg-[#E9E3C0]
      ">
@@ -69,9 +72,12 @@
                 </figure>
                 <p
                     class="absolute text-4xl -top-4 -right-4 text-[#343434] rounded-[50%] shadow-lg hover:cursor-pointer">
-                    <i class=" fa-solid fa-circle-xmark "></i></p>
+                    <i class=" fa-solid fa-circle-xmark "></i>
+                </p>
             </div>
         </div>
+
+
     </div>
     <script src="https://kit.fontawesome.com/4a9599b20b.js" crossorigin="anonymous"></script>
 </body>
