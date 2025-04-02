@@ -68,7 +68,7 @@
             <!-- RIGHT -->
             <div class="hidden md:flex justify-end w-full relative">
                 <figure class="flex w-sm">
-                    <img class="rounded-r-lg" src="/logingModal/alojamientos/src/images/image-1.jpg" alt="">
+                    <img class="rounded-r-lg" src="../public/img/image-1.jpg" alt="">
                 </figure>
                 <p
                     class="absolute text-4xl -top-4 -right-4 text-[#343434] rounded-[50%] shadow-lg hover:cursor-pointer">

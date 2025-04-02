@@ -1,5 +1,6 @@
 <?php
 
+
 class Connection{
     private static $instance = null;
     private $pdo;
@@ -7,7 +8,7 @@ class Connection{
     private function __construct(){
         try {
             // Conexión a MySQL local
-            $dsn = "mysql:host=bzrknasgbcvmn2zocrl1-mysql.services.clever-cloud.com;dbname=bzrknasgbcvmn2zocrl1";
+            $dsn = "mysql:host=bzrknasgbcvmn2zocrl1-mysql.services.clever-cloud.com;dbname=bzrknasgbcvmn2zocrl1;charset=utf8";
 
             $options = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
