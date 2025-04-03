@@ -13,13 +13,13 @@
 
 <body>
 
-
+    <!-- BEGINNING OF NAVBAR -->
     <nav class="bg-[#014f52]  fixed w-full h-3xl z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-7 px-4">
 
             <!-- LOGO -->
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="../src/images/Logo-texto-blanco.png" class="h-8" alt="Flowbite Logo">
+                <img src="../public/img/Logo-texto-blanco.png" class="h-8" alt="Flowbite Logo">
             </a>
 
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -36,36 +36,42 @@
                     </svg>
                 </button>
             </div>
+
+            <!-- MENU -->
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul
-                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 
+                   rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                        <a href="#" class="block py-2 px-3 text-white bg-[#73eaaa] rounded-sm md:bg-transparent  md:p-0"
                             aria-current="page">Registra tu alojamiento</a>
                     </li>
                     <li>
                         <a href="#"
                             class="block py-2 px-3 text-gray-900 rounded-sm
-                             hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500
-                              dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Atracciones
+                             hover:bg-[#014f52] md:hover:bg-transparent md:hover:text-[#fdcd6c] md:p-0 md:dark:hover:text-[#fdcd6c]
+                              dark:text-white dark:hover:bg-[#fdcd6c] dark:hover:text-[#014f52] md:dark:hover:bg-transparent dark:border-gray-700">Atracciones
                             turisticas</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100
-                             md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500
-                              dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Servicios</a>
+                            class="block py-2 px-3 text-gray-900 rounded-sm
+                             hover:bg-[#014f52] md:hover:bg-transparent md:hover:text-[#fdcd6c] md:p-0 md:dark:hover:text-[#fdcd6c]
+                              dark:text-white dark:hover:bg-[#fdcd6c] dark:hover:text-[#014f52] md:dark:hover:bg-transparent dark:border-gray-700">Servicios</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0
-                             md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent
+                        <a href="#" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#fdcd6c] md:p-0
+                             md:dark:hover:text-[#fdcd6c] dark:text-white dark:hover:bg-[#fdcd6c] dark:hover:text-[#014f52] md:dark:hover:bg-transparent
                               dark:border-gray-700">Contactos</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+
+
+    <!-- END OF NAVBAR -->
 
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
