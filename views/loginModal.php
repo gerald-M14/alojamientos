@@ -1,3 +1,9 @@
+<?php
+
+
+
+?>
+
 <!doctype html>
 <html>
 
@@ -26,13 +32,13 @@
 
                 <p>Log in to your account to upload or download pictures,videos or music</p>
 
-                <div class="flex flex-col space-y-4  ">
+                <form method="POST" class="flex flex-col space-y-4  ">
                     <div class="border border-solid border-[#cccc] py-4 px-4.5"><input class="w-full focus:outline-none"
                             type="text" placeholder="Enter your email address"></div>
                     <div class="border border-solid border-[#cccc] py-4 px-4.5"><input class="w-full focus:outline-none"
                             type="text" placeholder="Enter your password"></div>
                     <p class="text-[#015057] text-center">Forgot password</p>
-                </div>
+                </form>
 
                 <button
                     class="bg-[#015057] text-white py-4 rounded-md gap-4 flex items-center justify-center transition-all duration-500 hover:bg-[rgba(1,80,87,0.8)] hover:cursor-pointer hover:gap-6">Next
