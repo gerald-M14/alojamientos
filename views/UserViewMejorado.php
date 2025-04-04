@@ -1,3 +1,11 @@
+<?php
+    require_once "../controller/LoginController.php";
+    session_start();
+    if(!isset($_SESSION['code'])){
+        echo "<h1>Debes iniciar sesion!</h1>";
+    }else{
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +59,7 @@
     <header>
         <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-200 ">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                <a href="../views/UserViewMejorado.php" class="flex items-center">
+                <a href="./landingPage.php" class="flex items-center">
                     <img src="../public/img/Logo.png" class="mr-3 h-12 sm:h-16" alt="Logo" />
                 </a>
                 <div class="flex items-center lg:order-2">
@@ -353,3 +361,4 @@
 </body>
 
 </html>
+<?php } ?>
