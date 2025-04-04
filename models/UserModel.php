@@ -39,23 +39,54 @@ class UsersModel{
         return $user;    
     }
 
-    public function save(){
+    public function save() {
         $pdo = Connection::getInstance()->getConnection();
-        $query = $pdo->prepare("INSERT INTO users(name, email, password, age, id_role) VALUES (:name, :email, :pass, :age, :role)");
-        $result = $query->execute([ 
-            ':name' =>  $this->name,
+        
+        
+        $role = ($this->role == 1) ? 1 : 2;
+        
+        $query = $pdo->prepare("
+            INSERT INTO users(name, email, password, age, id_role) 
+            VALUES (:name, :email, :pass, :age, :role)
+        ");
+        
+        return $query->execute([
+            ':name' => $this->name,
             ':email' => $this->email,
             ':pass' => $this->password,
             ':age' => $this->age,
-            ':role' => $this->role
+            ':role' => $role
         ]);
-        return $result;
-        
     }
     
     public static function create($name, $email, $password, $age, $role) {
-        $user = new self($name, $email, $password, $age, $role);
-        return $user->save();
+        try {
+            $pdo = Connection::getInstance()->getConnection();
+            
+           
+            if (empty($name) || empty($email) || empty($password) || empty($age)) {
+                return false;
+            }
+            
+            
+            $role = ($role == 1) ? 1 : 2;
+            
+            $query = $pdo->prepare("
+                INSERT INTO users(name, email, password, age, id_role) 
+                VALUES (:name, :email, :pass, :age, :role)
+            ");
+            
+            return $query->execute([
+                ':name' => $name,
+                ':email' => $email,
+                ':pass' => $password, 
+                ':age' => $age,
+                ':role' => $role
+            ]);
+        } catch (PDOException $e) {
+            error_log("Database error: " . $e->getMessage());
+            return false;
+        }
     }
 
     
