@@ -1,4 +1,6 @@
 <?php
+
+    require_once "../controller/LoginController.php";
     session_start();
     if(!isset($_SESSION['code'])) {
         header("Location: ../views/index.php");
@@ -65,8 +67,8 @@
     <header class=" top-0 left-0 right-0 z-50 bg-slate-800" id="header">
         <nav class="container mx-auto px-4 lg:px-8 py-4">
             <div class="flex flex-wrap justify-between items-center">
-                <a href="../views/UserViewMejorado.php" class="flex items-center">
-                    <img src="../public/img/Logo.png" class="h-12 sm:h-14" alt="Logo" />
+                <a href="../views/UserView.php" class="flex items-center">
+                    <img src="../public/img/Logo-texto-blanco.png" class="h-12 sm:h-10" alt="Logo" />
                 </a>
                 
                 <!-- Menú móvil -->
@@ -92,8 +94,16 @@
                 <!-- Botones de acción -->
                 <div class="hidden lg:flex items-center space-x-4">
                     <span class="px-3 font-medium text-white">Hola, <?php echo $_SESSION['User']; ?></span>
-                    <a href="#" class="bg-white text-teal-600 hover:bg-teal-50 font-medium rounded-full text-sm px-5 py-2.5 transition-colors duration-300">Cerrar sesion</a>
-                    
+                    <form action="" method="POST">
+                    <button name="logout" type="submit" class="py-2 px-3 bg-teal-500 text-white rounded-lg text-center font-medium cursor-pointer">Cerrar sesión</button>
+                    </form>
+                    </div>
+
+                    <?php
+                        if(isset($_POST['logout'])){
+                            LoginController::logout();
+                        }
+                    ?>                    
                 </div>
             </div>
             
@@ -101,16 +111,24 @@
             <div class="hidden w-full mt-4 lg:hidden bg-white rounded-lg shadow-lg p-4" id="mobile-menu">
                 <ul class="flex flex-col space-y-3 font-medium">
                     <li>
-                        <a href="../views/UserViewMejorado.php" class="block py-2 px-3 text-teal-600 bg-teal-50 rounded-lg">Inicio</a>
+                        <a href="../views/UserView.php" class="block py-2 px-3 text-teal-600 bg-teal-50 rounded-lg">Inicio</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-3 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-lg transition-colors duration-300">Mis alojoamientos</a>
+                        <a href="../views/AccomodationByUser.php" class="block py-2 px-3 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-lg transition-colors duration-300">Mis alojoamientos</a>
                     </li>
                     
                     <div class="pt-4 border-t border-gray-200 flex flex-col space-y-3">
-                    <a href="#" class="py-2 px-3 bg-teal-500 text-white rounded-lg text-center font-medium">Cerrar sesión</a>
 
+                    <form action="" method="POST">
+                    <button name="logout" type="submit" class="py-2 px-3 bg-teal-500 text-white rounded-lg text-center font-medium">Cerrar sesión</button>
+                    </form>
                     </div>
+
+                    <?php
+                        if(isset($_POST['logout'])){
+                            LoginController::logout();
+                        }
+                    ?>
                 </ul>
             </div>
         </nav>
@@ -214,6 +232,8 @@
                                 Guardar
                             </button>
                         </form>
+
+                        
                     </div>
 
                     <!-- Modal container -->
