@@ -17,7 +17,7 @@ class LoginController{
         if($role == 1 ){
             header('Location: ./adminView.php');
         }else{
-            header("Location: ./UserViewMejorado.php");
+            header("Location: ./UserView.php");
         }
     }else{
         return "<div class='alert alert-danger' role='alert'>

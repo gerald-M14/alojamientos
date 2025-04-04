@@ -36,8 +36,8 @@ class accommodationModel{
         //conexion
         $pdo = Connection::getInstance()->getConnection();
 
-        // select * from tasks
-        // $query = $pdo->query("SELECT * FROM alojamientos"); //obtiene la consulta
+        
+        
         $query = $pdo->query("SELECT l.id_lodge, l.name, l.address, l.price, l.URLimage, t.lodge_type, c.phone, c.email,  
                                 GROUP_CONCAT(s.service SEPARATOR ', ') AS services  
                             FROM lodges l  
@@ -51,7 +51,66 @@ class accommodationModel{
         $result = $query->fetchAll(PDO::FETCH_ASSOC); //obtiene la información de la consulta
         return $result;
 
+
     }
 
+    public static function findAccomodationByUser(){
+        $pdo = Connection::getInstance()->getConnection();
+        $query = $pdo->prepare("SELECT 
+                                l.id_lodge, 
+                                l.name, 
+                                l.address, 
+                                l.price, 
+                                l.URLimage, 
+                                t.lodge_type, 
+                                c.phone, 
+                                c.email,  
+                                GROUP_CONCAT(s.service SEPARATOR ', ') AS services  
+                            FROM lodges l
+                            JOIN user_lodges ul ON l.id_lodge = ul.id_lodge
+                            JOIN lodgeType t ON l.id_lodgeType = t.id_lodgeType  
+                            JOIN contacts c ON l.id_contact = c.id_contact  
+                            JOIN lodge_services ls ON l.id_lodge = ls.id_lodge  
+                            JOIN services s ON ls.id_service = s.id_service  
+                            WHERE ul.id_user = ?
+                            GROUP BY 
+                                l.id_lodge, l.name, l.address, l.price, l.URLimage, 
+                                t.lodge_type, c.phone, c.email;
+
+                                                        ");
+        $query->execute([$_SESSION['code']]);
+        $resultByUser = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $resultByUser;
+    }
+
+    //metodo para guardar los alojamientos por usuario
+    public function saveAccomodationByUser () {
+        session_start(); 
     
+        if (!isset($_SESSION['code'])) {
+            echo "Error: La sesión no está iniciada.";
+            return false; // O manejar el error de otra manera
+        }
+    
+        $pdo = Connection::getInstance()->getConnection();
+        $query = $pdo->prepare("INSERT INTO user_lodges (id_user, id_lodge) VALUES (?, ?)");
+        $result = $query->execute([$_SESSION['code'], $this->id_lodge]);
+        return $result; 
+    }
+
+    //metodo para eliminar los alojamientos por usuario
+    public function deleteAccomodationByUser () {
+        session_start(); 
+    
+        if (!isset($_SESSION['code'])) {
+            echo "Error: La sesión no está iniciada.";
+            return false; // O manejar el error de otra manera
+        }
+    
+        $pdo = Connection::getInstance()->getConnection();
+        $query = $pdo->prepare("DELETE FROM user_lodges WHERE id_user = ? AND id_lodge = ?");
+        $result = $query->execute([$_SESSION['code'], $this->id_lodge]);
+
+        return $result; 
+    }
 }
