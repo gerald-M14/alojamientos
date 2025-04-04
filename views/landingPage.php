@@ -75,13 +75,35 @@
             </div>
         </div>
     </nav>
-
-
-
     <!-- END OF NAVBAR -->
+    <main>
+        <!-- Hero Sections -->
+        <div class="relative w-full mx-auto h-[40rem] bg-[#014f52] before:content-[''] before:absolute before:top-0 before:left-0 before:w-full
+             before:h-full before:bg-black before:opacity-35 before:z-0 ">
+
+            <img src="../public/img/heroSection.jpg" alt="Hero Image"
+                class="w-full h-[40rem] object-cover object-center ">
+            <div class="absolute bottom-[4rem] left-[7rem]  max-w-[28rem] leading-tight z-10">
+                <h6 class="text-white text-[1.5rem] ">Explora las maravillas</h6>
+                <h1 class="text-white text-[2rem] font-bold ">Descubre un nuevo mundo en cada viaje, en cada
+                    aventura
+                </h1>
+                <div class="flex group items-center justify-center py-4 px-4 mt-6 bg-transparent rounded-xl border-2 border-white text-white
+                    trasition-all duration-200 hover:scale-110 hover:cursor-pointer">
+                    <a href="#" class="transition-all duration-500">Descubrir <i
+                            class="fa-solid fa-arrow-right group-hover:ml-4"></i></a>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
 
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://kit.fontawesome.com/4a9599b20b.js" crossorigin="anonymous"></script>
 
 
 </body>
