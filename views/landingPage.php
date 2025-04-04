@@ -78,7 +78,7 @@
     <!-- END OF NAVBAR -->
     <main>
         <!-- Hero Sections -->
-        <div class="relative w-full mx-auto h-[40rem] bg-[#014f52] before:content-[''] before:absolute before:top-0 before:left-0 before:w-full
+        <section class="relative w-full mx-auto h-[40rem] bg-[#014f52] before:content-[''] before:absolute before:top-0 before:left-0 before:w-full
              before:h-full before:bg-black before:opacity-35 before:z-0 ">
 
             <img src="../public/img/heroSection.jpg" alt="Hero Image"
@@ -94,7 +94,24 @@
                             class="fa-solid fa-arrow-right group-hover:ml-4"></i></a>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!--CARD LODGINGS  -->
+
+        <Section class="max-w-[85rem] px-32 mb-[16rem] mx-auto mt-10">
+            <div class="flex flex-col items-center justify-center mt-10">
+                <h1 class="text-center text-[#014f52] text-[2rem] font-bold mt-10">Alojamientos</h1>
+                <p class="text-center text-[#014f52] text-[1.5rem] font-bold mt-4">Encuentra el lugar perfecto para
+                    hospedarte</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-10">
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+            </div>
+        </Section>
+
 
 
     </main>
