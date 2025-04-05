@@ -99,7 +99,7 @@
 
             <div class="form__item flex flex-col space-y-2 mb-6">
                 <label for="URLimage" class="text-gray-600 font-bold">Imagen (URL)</label>
-                <input type="text" name="URLimage" id="URLimage" class="bg-gray-200 border-2 rounded-lg w-full py-3 px-4">
+                <input type="text" name="URLimage" id="URLimage" class="bg-gray-200 border-2 rounded-lg w-full py-3 px-4" required>
             </div>
 
             <!-- SELECT de lodgeType -->
