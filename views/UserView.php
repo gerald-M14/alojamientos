@@ -71,21 +71,14 @@
                     <img src="../public/img/Logo-texto-blanco.png" class="h-12 sm:h-10" alt="Logo" />
                 </a>
                 
-                <!-- Menú móvil -->
-                <div class="flex items-center lg:hidden">
-                    <button id="mobile-menu-button" class="inline-flex items-center p-2 text-teal-600 hover:text-teal-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-200">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                    </button>
-                </div>
-                
-                <!-- Menú desktop -->
+    
                 <div class="hidden lg:flex lg:items-center lg:w-auto" id="desktop-menu">
                     <ul class="flex flex-row space-x-8 mt-0 font-medium">
                         <li>
                             <a href="../views/UserView.php" class="block py-2 text-teal-600 border-b-2 border-teal-600 hover:text-teal-800 transition-colors duration-300" aria-current="page">Inicio</a>
                         </li>
                         <li>
-                            <a href="../views/AccomodationByUser.php" class="block py-2 text-white hover:text-teal-400 transition-colors duration-300 nav-link">Mis alojamientos</a>
+                            <a href="../views/AccomodationByUser.php" class="block py-2 text-white hover:text-teal-400 transition-colors duration-300 nav-link">Registrar alojamiento</a>
                         </li>
                         
                     </ul>
@@ -107,30 +100,7 @@
                 </div>
             </div>
             
-            <!-- Menú móvil desplegable -->
-            <div class="hidden w-full mt-4 lg:hidden bg-white rounded-lg shadow-lg p-4" id="mobile-menu">
-                <ul class="flex flex-col space-y-3 font-medium">
-                    <li>
-                        <a href="../views/UserView.php" class="block py-2 px-3 text-teal-600 bg-teal-50 rounded-lg">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="../views/AccomodationByUser.php" class="block py-2 px-3 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-lg transition-colors duration-300">Mis alojoamientos</a>
-                    </li>
-                    
-                    <div class="pt-4 border-t border-gray-200 flex flex-col space-y-3">
-
-                    <form action="" method="POST">
-                    <button name="logout" type="submit" class="py-2 px-3 bg-teal-500 text-white rounded-lg text-center font-medium">Cerrar sesión</button>
-                    </form>
-                    </div>
-
-                    <?php
-                        if(isset($_POST['logout'])){
-                            LoginController::logout();
-                        }
-                    ?>
-                </ul>
-            </div>
+            
         </nav>
     </header>
 
@@ -222,7 +192,7 @@
                             Ver más
                         </label>
 
-                        <!-- Botón Guardar con formulario -->
+                        <!-- Botón Guardar alojamiento -->
                         <form action="../controller/ManagerController.php" method="POST" class="w-full">
                             <input type="hidden" name="action" value="saveAccommodationByUser">
                             <input type="hidden" name="id_lodge" value="<?php echo $item['id_lodge']; ?>">
@@ -236,7 +206,7 @@
                         
                     </div>
 
-                    <!-- Modal container -->
+                    <!-- Modal container de ver mas -->
                     <div class="modal-container fixed inset-0 z-50 overflow-auto">
                         <!-- Backdrop semi-transparente usando clase personalizada -->
                         <div class="fixed inset-0 modal-backdrop"></div>

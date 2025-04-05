@@ -113,4 +113,69 @@ class accommodationModel{
 
         return $result; 
     }
+
+
+        public static function getAllServices() {
+        $pdo = Connection::getInstance()->getConnection();
+        $query = $pdo->prepare("SELECT id_service, service FROM services");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function getAllTypes() {
+        $pdo = Connection::getInstance()->getConnection();
+        $query = $pdo->prepare("SELECT id_lodgeType, lodge_type FROM lodgeType");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+    public function saveNewAccomodation () {
+        session_start(); 
+    
+        if (!isset($_SESSION['code'])) {
+            echo "Error: La sesión no está iniciada.";
+            return false; // O manejar el error de otra manera
+        }
+    
+        $pdo = Connection::getInstance()->getConnection();
+    
+        if (isset($this->phone) && isset($this->email)) {
+            // Buscar si el contacto ya existe
+            $queryContact = $pdo->prepare("SELECT id_contact FROM contacts WHERE phone = ? OR email = ?");
+            $queryContact->execute([$this->phone, $this->email]);
+            $contact = $queryContact->fetch();
+    
+            if (!$contact) {
+                $queryInsertContact = $pdo->prepare("INSERT INTO contacts (phone, email) VALUES (?, ?)");
+                $queryInsertContact->execute([$this->phone, $this->email]);
+                $id_contact = $pdo->lastInsertId(); // Obtener el ID del contacto recién creado
+            } else {
+                $id_contact = $contact['id_contact'];
+            }
+        } else {
+            echo "Error: No se proporcionaron los datos de contacto.";
+            return false;
+        }
+    
+        $query = $pdo->prepare("INSERT INTO lodges (name, address, price, id_lodgeType, id_contact, URLimage) 
+                                VALUES (?, ?, ?, ?, ?, ?)");
+        $result = $query->execute([$this->name, $this->address, $this->price, $this->lodge_type, $id_contact, $this->URLimage]);
+    
+        $id_lodge = $pdo->lastInsertId();
+    
+        if (isset($this->services) && is_array($this->services)) {
+            foreach ($this->services as $id_service) {
+                $queryService = $pdo->prepare("INSERT INTO lodge_services (id_lodge, id_service) VALUES (?, ?)");
+                $queryService->execute([$id_lodge, $id_service]);
+            }
+        }
+    
+        header("Location: ../views/adminView.php"); 
+    exit;
+    }
+    
+
+
+    
 }

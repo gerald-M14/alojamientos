@@ -16,6 +16,14 @@ class ManagerController implements iAlojamiento{
     public static function getAccomodationByUser(){
         return accommodationModel::findAccomodationByUser();
     }
+
+    public static function getAllService(){
+        return accommodationModel::getAllServices();
+    }
+
+    public static function getAllType(){
+        return accommodationModel::getAllTypes();
+    }
     
     public static function sendAccomodationByUser(accommodationModel $accommodation)
     {
@@ -70,4 +78,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     ManagerController::deleteAccomodationByUser($accommodation);
 }
 
+// Manejo de la solicitud POST para guardar un NUEVO alojamiento
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'saveNewAccommodation') {
+    // Captura los datos del formulario
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $price = $_POST['price'];
+    $URLimage = $_POST['URLimage'];
+    $lodge_type = $_POST['id_lodgeType'];  // Tipo de alojamiento seleccionado
+    $phone = $_POST['phone'];  // Teléfono de contacto
+    $email = $_POST['email'];  // Correo de contacto
+    $services = isset($_POST['services']) ? $_POST['services'] : []; // Servicios seleccionados (pueden ser varios)
+
+    // Si tienes el id_lodge desde algún otro lugar (por ejemplo, se crea después de la inserción), puedes pasarlo como null
+    $id_lodge = null; // Este valor se puede establecer como null al principio
+
+    // Crear una nueva instancia del modelo con los parámetros requeridos
+    $accommodation = new accommodationModel($id_lodge, $name, $address, $price, $URLimage, $lodge_type, $phone, $email, $services);
+
+    // Llamar al método para guardar el alojamiento
+    $accommodation->saveNewAccomodation();
+}
