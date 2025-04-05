@@ -119,24 +119,30 @@
             <h4 class="text-gray-800 font-bold text-xl">Datos de contacto</h4>
             <div class="form__item flex flex-col space-y-2 mb-6">
                 <label for="phone" class="text-gray-600 font-bold">Teléfono</label>
-                <input type="text" name="phone" id="phone" class="bg-gray-200 border-2 rounded-lg w-full py-3 px-4">
+                <input type="text" name="phone" id="phone" class="bg-gray-200 border-2 rounded-lg w-full py-3 px-4" required>
             </div>
 
             <div class="form__item flex flex-col space-y-2 mb-6">
                 <label for="email" class="text-gray-600 font-bold">Email</label>
-                <input type="email" name="email" id="email" class="bg-gray-200 border-2 rounded-lg w-full py-3 px-4">
+                <input type="email" name="email" id="email" class="bg-gray-200 border-2 rounded-lg w-full py-3 px-4" required>
             </div>
 
             <!-- Selección de Servicios -->
             <div class="form__item flex flex-col space-y-2 mb-6">
                 <label for="services" class="text-gray-600 font-bold">Servicios</label>
-                <?php foreach($services as $service): ?>
+                <?php foreach($services as $index => $service): ?>
                     <div>
-                        <input type="checkbox" name="services[]" value="<?php echo $service['id_service']; ?>">
+                        <input 
+                            type="checkbox" 
+                            name="services[]" 
+                            value="<?php echo $service['id_service']; ?>"
+                            <?php echo $index === 0 ? 'required' : ''; ?> 
+                        >
                         <label><?php echo $service['service']; ?></label>
                     </div>
                 <?php endforeach; ?>
             </div>
+
 
             <input type="hidden" name="action" value="saveNewAccommodation">
 
