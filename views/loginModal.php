@@ -105,7 +105,7 @@ if(isset($_POST['email'], $_POST['password'])){
                 <figure class="flex w-sm">
                     <img class="rounded-r-lg" src="../public/img/image-1.jpg" alt="">
                 </figure>
-                <a href="./landingPage.php" class="absolute text-4xl -top-4 -right-4
+                <a href="./index.php" class="absolute text-4xl -top-4 -right-4
                  text-white rounded-[50%] shadow-xl transition-all duration-200
                     hover:text-[#fdcd6c] hover:scale-110 hover:cursor-pointer">
                     <i class=" fa-solid fa-circle-xmark "></i>
